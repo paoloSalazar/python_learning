@@ -1,13 +1,33 @@
 class Employee:
-    __slots__ = ("name", "age", "salary")
+    __slots__ = ("name", "age", "_salary")
 
     def __init__(self, name, age, salary):
         self.name = name
         self.age = age
-        self.salary = salary
+        self._salary = salary
 
     def increase_salary(self, percent):
         self.salary += self.salary * (percent/100)
+
+    def __repr__(self):
+        return (
+            f"Employee("
+            f"{repr(self.name)}, {repr(self.age)}, "
+            f"{repr(self.salary)})"
+            )
+    
+    @property
+    def salary(self):
+        """getter function example"""
+        return self._salary
+    
+    @salary.setter
+    def salary(self, salary):
+        """Setter example the funcion name should match with the above method"""
+        if salary < 1000:
+            raise ValueError("Minimun wage is $1000")
+        self._salary = salary
+        # raise ValueError("Read only")
 
 
 class Tester(Employee):
@@ -27,5 +47,6 @@ class Developer(Employee):
         self.salary += bonus
 
 employee1 = Employee("lauren",44, 1000)
-
-print(isinstance(employee1, Tester))
+# this assignment is using the setter method defined in the class
+employee1.salary = 1200
+print(employee1.salary)
