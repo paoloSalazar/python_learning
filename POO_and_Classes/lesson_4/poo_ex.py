@@ -29,6 +29,12 @@ class Employee:
             raise ValueError("Minimun wage is $1000")
         self._salary = salary
         # raise ValueError("Read only")
+    
+    @classmethod
+    def change_minimum_wage(cls, new_wage):
+        if new_wage > 3000:
+            raise ValueError("Company is bankrupt..")
+        cls.minimum_wage = new_wage
 
 
 class Tester(Employee):
@@ -51,5 +57,9 @@ employee1 = Employee("lauren",44, 1000)
 # this assignment is using the setter method defined in the class
 employee1.salary = 1200
 # print(Employee.__dict__)
-Employee.__dict__["increase_salary"](employee1,20)
-print(employee1.salary)
+# Employee.__dict__["increase_salary"](employee1,20)
+# print(employee1.salary)
+
+print(Employee.minimum_wage)
+Employee.change_minimum_wage(2000)
+print(Employee.minimum_wage)
