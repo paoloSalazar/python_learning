@@ -1,5 +1,6 @@
 class Employee:
-    __slots__ = ("name", "age", "_salary")
+    # __slots__ = ("name", "age", "_salary")
+    minimum_wage = 1000
 
     def __init__(self, name, age, salary):
         self.name = name
@@ -24,7 +25,7 @@ class Employee:
     @salary.setter
     def salary(self, salary):
         """Setter example the funcion name should match with the above method"""
-        if salary < 1000:
+        if salary < Employee.minimum_wage:
             raise ValueError("Minimun wage is $1000")
         self._salary = salary
         # raise ValueError("Read only")
@@ -49,4 +50,6 @@ class Developer(Employee):
 employee1 = Employee("lauren",44, 1000)
 # this assignment is using the setter method defined in the class
 employee1.salary = 1200
+# print(Employee.__dict__)
+Employee.__dict__["increase_salary"](employee1,20)
 print(employee1.salary)
