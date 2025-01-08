@@ -3,12 +3,15 @@ from dataclasses import dataclass
 
 """Use mypy tool to check attribute type
    pip install mypy"""
-@dataclass
+@dataclass(slots=True)
 class Project:
     """data clases are used to avoid writting all class init method"""
     name: str
     payment: int
     client: str
+
+    def notify_client(self):
+        print(f"Notifying the client about the progress of the {self.name}")
     
     
 
