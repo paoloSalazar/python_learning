@@ -1,3 +1,5 @@
+from datetime import date
+
 class Employee:
     # __slots__ = ("name", "age", "_salary")
     minimum_wage = 1000
@@ -32,10 +34,16 @@ class Employee:
     
     @classmethod
     def change_minimum_wage(cls, new_wage):
+        """Used to define method that belons to class not instances"""
         if new_wage > 3000:
             raise ValueError("Company is bankrupt..")
         cls.minimum_wage = new_wage
-
+    
+    @classmethod
+    def new_employee(cls, name, dob):
+        now = date.today()
+        age = now.year - dob.year - ((now.month, now.day) < (dob.month, dob.day))
+        return cls(name, age, cls.minimum_wage)
 
 class Tester(Employee):
     def run_tests(self):
@@ -60,6 +68,10 @@ employee1.salary = 1200
 # Employee.__dict__["increase_salary"](employee1,20)
 # print(employee1.salary)
 
-print(Employee.minimum_wage)
-Employee.change_minimum_wage(2000)
-print(Employee.minimum_wage)
+# print(Employee.minimum_wage)
+# Employee.change_minimum_wage(2000)
+# print(Employee.minimum_wage)
+e = Employee.new_employee("Mary", date(1991,8,12))
+print(e.name)
+print(e.age)
+print(e.salary)
