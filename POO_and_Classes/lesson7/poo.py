@@ -1,5 +1,8 @@
 from dataclasses import dataclass
 
+
+"""Use mypy tool to check attribute type
+   pip install mypy"""
 @dataclass
 class Project:
     """data clases are used to avoid writting all class init method"""
@@ -23,6 +26,6 @@ class Employee:
         self.project = project
 
 
-p = Project("Django APP", 20000, "Globomatics")
+p = Project("Django APP", "20000", "Globomatics")
 e = Employee("Ji-Soo", 38, 1000, p)
 print(e.project)
