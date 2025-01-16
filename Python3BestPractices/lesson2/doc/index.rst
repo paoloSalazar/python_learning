@@ -1,0 +1,39 @@
+.. demo documentation master file, created by
+   sphinx-quickstart on Wed Jan 15 10:58:15 2025.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+demo documentation
+==================
+
+Add your content using ``reStructuredText`` syntax. See the
+`reStructuredText <https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html>`_
+documentation for details.
+
+
+This project serves mainly as an example project for this video course
+which I made for  `Pluralshight <http://www.Pluralshight>`_
+
+This is a subtitle
+------------------
+
+We can include code examples in our page like this::
+
+    import something
+    x = something.else(a,b)
+    print(c)
+
+
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Contents:
+
+
+* Bulleted list item one
+* Bulleted list item two
+
++ milk
++ buffer
+
+`Link Text <http://www.example.com/>`_
