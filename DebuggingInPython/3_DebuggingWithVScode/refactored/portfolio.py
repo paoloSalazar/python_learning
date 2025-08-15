@@ -8,7 +8,18 @@ class Portfolio:
         self.name = name
         self.investments: List[Investment] = []
 
-    def add_investment(self, coin: str, quantity: float, add_sell: bool = False):
+    # def add_investment(self, coin: str, quantity: float, add_sell: bool = False):
+    #     buy_date, sell_date = utilities.get_buy_sell_dates()
+    #     self.investments.append(
+    #         Investment(coin, quantity, True, buy_date)
+    #     )
+
+    #     if add_sell:
+    #         self.investments.append(
+    #             Investment(coin, quantity * 0.2, False, sell_date)
+    #         )
+
+    def add(self, coin, quantity, add_sell=True):
         buy_date, sell_date = utilities.get_buy_sell_dates()
         self.investments.append(
             Investment(coin, quantity, True, buy_date)
@@ -35,3 +46,7 @@ class Portfolio:
                 print(f"you own {total} {coin} worth {current_price*total}")
             except ValueError as e:
                 print(e)
+        if list_investments:
+            print("\nInvestments:")
+            for investment in self.investments:
+                print(investment)

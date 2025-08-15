@@ -40,6 +40,24 @@ def add_investment(coin, quantity, buy=True, add_sell=False):
         })
 
 def summarize(list_investments=False):
+    totals = {}
+    for investment in portfolio:
+        if investment["coin"] not in totals:
+            totals[investment["coin"]] = 0
+        if investment["buy"]:
+            totals[investment["coin"]] += investment["quantity"]
+        else:
+            totals[investment["coin"]] -= investment["quantity"]
+    
+    for coin, total in totals.items():
+        # try:
+        #     current_price = get_current_price(coin)
+        #     print(f"You own {total} {coin} worth {total * current_price}")
+        # except ValueError as e:
+        #     print(e)
+        current_price = get_current_price(coin)
+        print(f"You own {total} {coin} worth {total * current_price}")
+
     if list_investments:
         print("\nInvestments:")
         print("-"*20)

@@ -37,7 +37,7 @@ The step over, in and out functions are triggered with buttons in VSCode
 
 ### Inspecting Application State
 * Continued use of the variables and call stack in the Run and Debug Panel
-* Watched expressions
+* Watch expressions
 * Debug Console
 
 ## Demo
@@ -52,3 +52,26 @@ To Show breakpoints in the overview ruler open user preferences and check this o
 
 For conditional breakpoints edit the break points and add rule
 ![Conditional Breakpoints](img/conditional_breakpoints.png)
+
+## Demo 2
+Working in the __refactored__ folder.
+Note you need to run debug from app.py file
+
+Setup a breakpoint in __portfolio__ class in summarize method
+![Setupbreakpoint](img/setupbreakpoint.png)
+
+Once you reach the code for function call press Step Into (F10) button to jump to method definition
+![alt text](img/stepintobutton.png)
+
+To return to breakpoint location press StepOut Button (F11)
+
+Let's check the watch section now.
+this section is util because you can insert a python expression to check values.
+it is useful when __variables__ section is populated too much
+You can add a new expression by pressing plus button
+
+![watchSection](img/watchsection.png)
+
+Also you can use the __Debug Console__ to type variables or python expressions to check the values
+Note you need to change to __<module>__ to access to more global variables
+![DebugConsole](img/debugconsole.png)
