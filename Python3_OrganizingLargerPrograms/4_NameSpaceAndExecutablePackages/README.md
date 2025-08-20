@@ -150,3 +150,20 @@ r.close()
 $ python multi-reader-program test.gz 
 data compressed with gz2
 ```
+
+## Executable Zip Files
+The zip file contains the same contents as the directory, not the directory itself
+
+let's create a zip python executable
+```bash
+$ cd multi-reader-program/
+$ python -m zipfile -c ../multi-reader-program.zip * 
+$ cd
+$ ls multi-reader-program.zip 
+multi-reader-program.zip
+$ python multi-reader-program.zip test.gz 
+data compressed with gz2
+```
+Ideal to distribute packages in some cases..
+the advantage is you don't need to install any package
+
